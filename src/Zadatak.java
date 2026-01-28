@@ -18,6 +18,19 @@ public class Zadatak {
         try (Connection connection = dataSource.getConnection()) {
             System.out.println("Uspjesno spajanje na bazu!");
 
+//            CREATE OR ALTER PROC IzmjeniCijene @IDStavka1 INT, @IDStavka2 INT
+//                    AS
+//            BEGIN
+//            BEGIN TRY
+//            UPDATE Stavka SET CijenaPoKomadu = CijenaPoKomadu + 10  WHERE IDStavka = @IDStavka1
+//                    UPDATE Stavka SET CijenaPoKomadu = CijenaPoKomadu - 10  WHERE IDStavka = @IDStavka2
+//                    END TRY
+//            BEGIN CATCH
+//            PRINT 'Greska pri izvrsavanju izmjene'
+//            ;THROW;
+//            END CATCH
+//            END
+
             try (CallableStatement cs = connection.prepareCall("{call IzmjeniCijene(?,?)}");
                  Statement stmt = connection.createStatement();
             ){
