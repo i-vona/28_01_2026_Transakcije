@@ -65,6 +65,8 @@ public class Zadatak {
                     );
                 }
 
+                resultSet.close();
+
             } catch(SQLException e){
                 System.err.println("Transakcija ponistena!");
                 connection.rollback();
